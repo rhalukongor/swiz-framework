@@ -192,7 +192,15 @@ package org.swizframework.processors
 			var arr:Array = chainString.split( "." );
 			var dest:Object = destObject;
 			while( arr.length > 1 )
-				dest = dest[ arr.shift() ];
+			{
+				var prop:String = arr.shift();
+				if(dest[ prop ] == null)
+				{
+					dest[prop] = {};
+				}
+				dest = dest[ prop ];
+			}
+			
 			return dest;
 		}
 		
