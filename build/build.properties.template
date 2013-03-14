@@ -4,7 +4,7 @@ swiz.name = swiz-framework-${swiz.version}
 swiz.namespace = http://swiz.swizframework.org
 
 # flex sdk
-flex.sdk = {path/to/flex/sdk}
+flex.sdk = {path/to/flex/sdk/}
 
 # Unit tests
 test.application.name = SwizTestRunner.mxml
