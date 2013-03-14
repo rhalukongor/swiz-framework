@@ -18,6 +18,7 @@ package org.swizframework.utils
 {
 	import flash.system.ApplicationDomain;
 	
+	import mx.modules.IModule;
 	import mx.modules.ModuleManager;
 
 	public class DomainUtil
@@ -45,7 +46,7 @@ package org.swizframework.utils
 		 */
 		public static function getModuleDomain( object:Object ):ApplicationDomain
 		{
-			if( object is ModuleTypeUtil.MODULE_TYPE )
+			if( object is IModule )
 			{
 				var moduleInfo:Object = ModuleManager.getAssociatedFactory( object ).info();
 				return moduleInfo.currentDomain;

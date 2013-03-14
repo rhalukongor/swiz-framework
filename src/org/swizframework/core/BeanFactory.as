@@ -31,7 +31,6 @@ package org.swizframework.core
 	import org.swizframework.processors.IMetadataProcessor;
 	import org.swizframework.processors.IProcessor;
 	import org.swizframework.reflection.TypeCache;
-	import org.swizframework.utils.ModuleTypeUtil;
 	import org.swizframework.utils.logging.SwizLogger;
 	
 	/**

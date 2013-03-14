@@ -1,15 +1,11 @@
-Swiz is a brutally simple micro-architecture for creating Rich Internet Applications with ActionScript 3 and Adobe Flex
+###Swiz is a brutally simple micro-architecture for creating Rich Internet Applications with ActionScript 3 and Adobe Flex
 
-## How to Contribute
+For information about swiz; please visit the [Swiz wiki](http://wiki.swizframework.org/).
 
-The Swiz team welcomes contributions to the framework in the form of pull requests. Please note that active development happens in the develop branch, so you should fork from and submit to it, not master.
+This fork of Swiz is not mavenized, however is up to date with other forks which includes some minor bug fixes. (See history)
+I also removed Flex 3 support and a made few changes here and there.
 
-## Documentation and Reporting Bugs
+To compile Swiz, copy build/build.properties.template and rename to build.properties.
+In the file; set the sdk path and call "ant -f ./build/build.xml compile" or use your favourite ant builder.
 
-Swiz does not use GitHub for issue tracking or documentation. Documentation can be found in the [Swiz wiki](http://wiki.swizframework.org/) and bugs and feature requests should be entered in the [Swiz JIRA instance](http://bugs.swizframework.org/)
-
-## Building
-
-You can compile the library .swc file using:
-
-	ant -f ./build/build.xml compile
+Please do not hesitate to send pull requests if you find a bug or code a feature.

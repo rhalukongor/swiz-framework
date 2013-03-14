@@ -85,25 +85,6 @@
 		<move file="${bin.loc}/rsl/flex4/library.swf" tofile="${bin.loc}/rsl/${swiz.name}.swf" />
 		<echo message="${swiz.name}.swf has been created in ${bin.loc}/rsl" />
 		
-		<antcall target="-compile-for-platform">
-			<param name="outputLocation" value="${bin.loc}/${swiz.name.flex3}.swc"/>
-			<param name="isDirectoryCompile" value="false"/>
-			<param name="isFlex4" value="false"/>
-			<param name="isFlex3" value="true"/>
-		</antcall>
-		
-		<echo message="${swiz.name.flex3}.swc has been created in ${bin.loc}" />
-		
-		<antcall target="-compile-for-platform">
-			<param name="outputLocation" value="${bin.loc}/rsl/flex3"/>
-			<param name="isDirectoryCompile" value="true"/>
-			<param name="isFlex4" value="false"/>
-			<param name="isFlex3" value="true"/>
-		</antcall>
-		
-		<move file="${bin.loc}/rsl/flex3/library.swf" tofile="${bin.loc}/rsl/${swiz.name.flex3}.swf"/>
-		<echo message="${swiz.name.flex3}.swf has been created in ${bin.loc}/rsl" />
-		
 		<!-- Remove extra RSL files -->				
 		<delete includeemptydirs="true" failonerror="false">
 			<fileset dir="${bin.loc}/rsl" defaultexcludes="false">
@@ -120,8 +101,6 @@
 		<!-- Default values for output location and directory compile. Normally passed as antcall params. -->
 		<property name="outputLocation" value="${bin.loc}/${swiz.name}.swc"/>
 		<property name="isDirectoryCompile" value="false"/>
-		<property name="isFlex3" value="false"/>
-		<property name="isFlex4" value="true"/>
 		
 		<!-- set up list of classes to include in library -->
 		<fileset id="src.include.fileset" dir="${src.loc}">
@@ -147,10 +126,6 @@
 			
 			<include-file name="metadata.xml" path="${src.loc}/metadata.xml" />
 			<include-file name="design.xml" path="${src.loc}/design.xml" />
-			
-			<!-- add flex3/flex4 compiler arg -->
-			<compiler.define name="CONFIG::flex3" value="${isFlex3}" />
-			<compiler.define name="CONFIG::flex4" value="${isFlex4}" />
 			
 			<!-- Configure the flex framework libraries as external link dependencies -->
 			<external-library-path dir="${flex.sdk}/frameworks" append="true">
@@ -189,8 +164,6 @@
 			<arg line="-source-path ${src.loc}"/>
 			<arg line="-output ${docs.loc}"/>
 			<arg line="-window-title 'Swiz ${swiz.version}'"/>
-			<arg line="-define+=CONFIG::flex3,false" />
-			<arg line="-define+=CONFIG::flex4,true" />
 		</java>
 		
 		<echo message="${swiz.name} documentation has been created in ${docs.loc}" />
@@ -201,9 +174,6 @@
 			<!-- Include the library .swc files -->
 			<zipfileset dir="${bin.loc}" prefix="${swiz.name}">
 				<include name="${swiz.name}.swc" />
-			</zipfileset>
-			<zipfileset dir="${bin.loc}" prefix="${swiz.name}">
-				<include name="${swiz.name.flex3}.swc" />
 			</zipfileset>
 			
 			<!-- Include the RSL .swf files -->

@@ -1,11 +1,10 @@
 # Versioning
-swiz.version = v1.4.2
+swiz.version = v1.4.3
 swiz.name = swiz-framework-${swiz.version}
-swiz.name.flex3 = ${swiz.name}-flex3
 swiz.namespace = http://swiz.swizframework.org
 
 # flex sdk
-flex.sdk = /Applications/Adobe\ Flash\ Builder\ 4.6/sdks/4.6.0
+flex.sdk = {path/to/flex/sdk}
 
 # Unit tests
 test.application.name = SwizTestRunner.mxml
